@@ -25,7 +25,8 @@ export async function replay(apiKey: string, host: string, msgs: Message[], onTe
 
     try {
         const messages: ChatCompletionRequestMessage[] = prompts.map(msg => ({ role: msg.role, content: msg.content }))
-        const response = await fetch(`${host}/v1/chat/completions`, {
+        //const response = await fetch(`${host}/v1/chat/completions`, {
+        const response = await fetch(`${host}/v1/messages`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${apiKey}`,
